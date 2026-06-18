@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --color-cream: #faf7f2;
+  --color-cream-dark: #f0ebe3;
+  --color-ink: #1c1917;
+  --color-ink-muted: #78716c;
+  --color-terracotta: #c45c3e;
+  --color-terracotta-soft: #f3e8e4;
+  --color-sage: #5c7a6b;
+  --color-sage-soft: #e8f0eb;
+  --color-bubble-other: #ffffff;
+  --color-bubble-self: #e8f0eb;
+  --color-border: #e7e0d8;
+  --color-wa-green: #008069;
+  --color-wa-green-dark: #006652;
+  --color-wa-panel: #f0f2f5;
+  --color-wa-hover: #f5f6f6;
+  --color-wa-bg: #fcfcfc;
+  --color-wa-chat-bg: #efeae2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-cream);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.safe-top {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-terracotta) 25%, transparent);
+}
