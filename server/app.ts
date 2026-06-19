@@ -15,11 +15,13 @@ export async function createApp() {
   const configuredOrigins = process.env.CLIENT_ORIGIN?.split(',').map((o) => o.trim()).filter(Boolean)
   const allowedOrigins = configuredOrigins?.length ? configuredOrigins : defaultOrigins
 
+  // On Vercel the SPA and API share one origin; reflect the request origin in production.
   app.use(
-    cors({
-      origin: allowedOrigins,
-      credentials: true,
-    }),
+    cors(
+      process.env.VERCEL
+        ? { origin: true, credentials: true }
+        : { origin: allowedOrigins, credentials: true },
+    ),
   )
   app.use(express.json({ limit: '1mb' }))
   app.use('/api', apiRouter)

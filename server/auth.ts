@@ -5,7 +5,7 @@ import { getUserById } from './db.js'
 const JWT_SECRET = process.env.JWT_SECRET ?? 'bitechat-dev-secret-change-in-production'
 
 if (process.env.VERCEL && !process.env.JWT_SECRET) {
-  console.warn('JWT_SECRET is not set — using an insecure default. Set it in Vercel project settings.')
+  throw new Error('JWT_SECRET is required in production. Set it in Vercel project settings.')
 }
 
 export interface AuthPayload {
