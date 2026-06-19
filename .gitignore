@@ -27,4 +27,4 @@ dist-ssr
 *.sw?
 
 server/data/
-data/
+/data/
